@@ -19,18 +19,18 @@
   <?php
 
 
-$connection = mysqli_connect("localhost","root","","adminpanel");
+$connection = mysqli_connect("localhost","root","","eventswave");
 
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];
-    $email = $_POST['email'];
     $password = $_POST['password'];
-    $confirm_password = $_POST['confirmpassword'];
+    $cpassword = $_POST['confirmpassword'];
 
-    if($password === $confirm_password)
+
+    if($password === $cpassword)
     {
-        $query = "INSERT INTO register (username,email,password) VALUES ('$username','$email','$password')";
+        $query = "INSERT INTO admin (User_Name,Password) VALUES ('$username','$password')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)

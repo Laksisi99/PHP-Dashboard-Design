@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('includes/header.php'); 
 include('includes/navbar.php'); 
 ?>
@@ -20,10 +21,6 @@ include('includes/navbar.php');
             <div class="form-group">
                 <label> Username </label>
                 <input type="text" name="username" class="form-control" placeholder="Enter Username">
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter Email">
             </div>
             <div class="form-group">
                 <label>Password</label>
@@ -53,12 +50,28 @@ include('includes/navbar.php');
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Admin Profile 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add Admin Profile 
+              Add New Admin 
             </button>
     </h6>
   </div>
 
   <div class="card-body">
+
+    <?php
+
+    if(isset($_SESSION['successs']) && $_SESSION['success'] != '')
+    {
+      echo '<h3 class="success"> '.$_SESSION['success'].' </h3>';
+      unset($_SESSION['success']);
+    }
+
+    if(isset($_SESSION['status']) && $_SESSION['status'] != '')
+    {
+      echo '<h3 class="bg-danger"> '.$_SESSION['status'].' </h3>';
+      unset($_SESSION['status']);
+    }
+
+    ?>
 
     <div class="table-responsive">
 
@@ -67,7 +80,6 @@ include('includes/navbar.php');
           <tr>
             <th> ID </th>
             <th> Username </th>
-            <th>Email </th>
             <th>Password</th>
             <th>EDIT </th>
             <th>DELETE </th>
@@ -78,7 +90,6 @@ include('includes/navbar.php');
           <tr>
             <td> 1 </td>
             <td> Funda of WEb IT</td>
-            <td> funda@example.com</td>
             <td> *** </td>
             <td>
                 <form action="" method="post">
