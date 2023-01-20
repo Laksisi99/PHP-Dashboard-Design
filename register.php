@@ -48,10 +48,11 @@ include('includes/navbar.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Admin Profile 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
               Add New Admin 
-            </button>
+    </button>
+    <h6 class="m-2 mt-5  font-weight-bold text-primary">Admin Profile 
+            
     </h6>
   </div>
 
@@ -59,10 +60,10 @@ include('includes/navbar.php');
 
     <?php
 
-    if(isset($_SESSION['successs']) && $_SESSION['success'] != '')
+    if(isset($_SESSION['status']) && $_SESSION['status'] != '')
     {
-      echo '<h3 class="success"> '.$_SESSION['success'].' </h3>';
-      unset($_SESSION['success']);
+      echo '<h3 class="status"> '.$_SESSION['status'].' </h3>';
+      unset($_SESSION['status']);
     }
 
     if(isset($_SESSION['status']) && $_SESSION['status'] != '')
@@ -75,35 +76,52 @@ include('includes/navbar.php');
 
     <div class="table-responsive">
 
+    <?php
+
+      $connection = mysqli_connect("localhost","root","","eventswave");
+      $query = "SELECT * FROM admin";
+      $query_run = mysqli_query($connection, $query);
+
+    ?>
+
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th> ID </th>
             <th> Username </th>
-            <th>Password</th>
             <th>EDIT </th>
             <th>DELETE </th>
           </tr>
         </thead>
         <tbody>
+
+        <?php
+
+        if(mysqli_num_rows($query_run) > 0)
+        {
+          while($row = mysqli_fetch_assoc($query_run))
+          {
+            ?>
      
           <tr>
-            <td> 1 </td>
-            <td> Funda of WEb IT</td>
-            <td> *** </td>
+            <td><?php echo $row['Admin_ID']; ?></td>
+            <td><?php echo $row['User_Name']; ?></td>
             <td>
-                <form action="" method="post">
-                    <input type="hidden" name="edit_id" value="">
-                    <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
-                </form>
+              <button  type="submit" class="btn btn-success">EDIT</button>
             </td>
             <td>
-                <form action="" method="post">
-                  <input type="hidden" name="delete_id" value="">
-                  <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
-                </form>
+              <button type="submit" class="btn btn-danger">DELETE</button>
             </td>
           </tr>
+
+          
+          <?php
+          }
+        }
+        else{
+          echo "Couldn't find records";
+        }
+        ?>
         
         </tbody>
       </table>

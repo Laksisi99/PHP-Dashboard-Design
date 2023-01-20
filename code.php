@@ -19,7 +19,7 @@ if(isset($_POST['registerbtn']))
         if($query_run)
         {
             echo "Record Saved";
-            $_SESSION['success'] =  "Admin Added Successfully";
+            $_SESSION['status'] =  "Admin Added Successfully!!!";
             header('Location: register.php');
         }
         else
@@ -33,7 +33,7 @@ if(isset($_POST['registerbtn']))
     else 
     {
         echo "pass doesn't match";
-        $_SESSION['status'] =  "Password and Confirm Password Does not Match";
+        $_SESSION['status'] =  "Password and Confirm Password Does not Match!!!";
         header('Location: register.php');
     }
 
