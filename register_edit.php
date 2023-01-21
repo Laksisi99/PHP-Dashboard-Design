@@ -13,23 +13,29 @@ include('includes/navbar.php');
 
   <div class="card-body">
 
-    <div class="form-group">
-        <label>Current Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Enter Current Password">
-    </div>
-    <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" name="confirmpassword" class="form-control" placeholder="Retype Current Password">
-    </div>
-    <div class="form-group">
-        <label>New Password</label>
-        <input type="password" name="newpassword" class="form-control" placeholder="Enter New Password">
-    </div>
+      <form action="code.php" method="POST"><div class="form-group">
+        <div class="form-group">
+            <label>Admin ID</label>
+            <input type="text" name="admin_id" class="form-control" placeholder="Enter Admin ID">
+        </div>
+        <div class="form-group">
+            <label>Current Password</label>
+            <input type="password" name="edit_password" class="form-control" placeholder="Enter Current Password">
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="edit_confirmpassword" class="form-control" placeholder="Retype Current Password">
+        </div>
+        <div class="form-group">
+            <label>New Password</label>
+            <input type="password" name="edit_newpassword" class="form-control" placeholder="Enter New Password">
+        </div>
+      </form>
 
-    <a href="register.php" class="btn btn-danger"> Cancel </a>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Change  
-    </button>
+        <a href="register.php" class="btn btn-danger"> Cancel </a>
+        <button type="submit" name="updatebtn" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+                  Change  
+        </button>
 
   </div>
   </div>
