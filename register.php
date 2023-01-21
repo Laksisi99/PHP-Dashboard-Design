@@ -113,7 +113,9 @@ include('includes/navbar.php');
               </form>
             </td>
             <td>
-              <button type="submit" class="btn btn-danger">DELETE</button>
+              <form action="register_delete.php" method="POST">
+                <button type="submit" name="delete_btn" class="btn btn-danger">DELETE</button>
+              </form>
             </td>
           </tr>
 

@@ -41,7 +41,7 @@ if(isset($_POST['registerbtn']))
 
 if(isset($_POST['updatebtn']))
 {
-    $id = $_POST['admin_id'];
+    $id = $_POST['new_admin_id'];
     $password = md5($_POST['edit_password']);
     $cpassword = md5($_POST['edit_confirmpassword']);
     $npassword = md5($_POST['edit_newpassword']);
@@ -75,6 +75,44 @@ if(isset($_POST['updatebtn']))
         }
 
 }
+
+if(isset($_POST['deletebtn']))
+{
+    $id = $_POST['new_admin_id'];
+    $password = md5($_POST['delete_password']);
+    $cpassword = md5($_POST['delete_confirmpassword']);
+    
+
+
+        if($password === $cpassword) 
+        {
+
+            $query = "DELETE FROM admin WHERE Admin_ID='$id'";
+            $query_run = mysqli_query($connection, $query);
+
+            if($query_run)
+            {
+                echo "Record Saved";
+                $_SESSION['status'] =  "Admin Removed Successfully!!!";
+                header('Location: register.php');
+            }
+            else
+            {
+                echo "Not Saved";
+                $_SESSION['status'] =  "Attempt Unsuccessful";
+                header('Location: register.php');
+            }
+
+        }
+        else 
+        {
+            echo "pass doesn't match";
+            $_SESSION['status'] =  "Password and Confirm Password Does not Match!!!";
+            header('Location: register.php');
+        }
+
+}
+
 
 
 
