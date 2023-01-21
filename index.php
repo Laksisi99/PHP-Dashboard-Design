@@ -26,7 +26,17 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admin</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-               <h4>Total Admin: *</h4>
+               <?php
+                require 'dbconfig.php';
+
+                $query = "SELECT Admin_ID FROM admin ORDER BY Admin_ID";
+                $query_run = mysqli_query($connection, $query);
+
+                $row = mysqli_num_rows($query_run);
+
+                echo '<h1>'.$row.'</h1>';
+               ?>
+               
 
               </div>
             </div>
