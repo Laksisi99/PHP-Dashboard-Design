@@ -1,8 +1,8 @@
 <?php
 
-session_start();
+include('security.php');
 
-$connection = mysqli_connect("localhost","root","","eventswave");
+// $connection = mysqli_connect("localhost","root","","eventswave");
 
 if(isset($_POST['registerbtn']))
 {
@@ -117,3 +117,4 @@ if(isset($_POST['deletebtn']))
 
 
 ?>
+

@@ -1,63 +1,80 @@
-<?php
+<?php 
+
 session_start();
-include('includes/header.php'); 
+
+	include("dbconfig.php");
+	include("functions.php");
+
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$username = $_POST['username'];
+		$password = md5($_POST['password']);
+
+		if(!empty($username) && !empty($password))
+		{
+
+			//read from database
+			$query = "select * from Admin where User_name = '$username' limit 1";
+			$query_run = mysqli_query($connection, $query);
+
+			if($query_run)
+			{
+				if($query_run && mysqli_num_rows($query_run) > 0)
+				{
+
+					$admin_data = mysqli_fetch_assoc($query_run);
+					
+					if($admin_data['Password'] === $password)
+					{
+
+						$_SESSION['id'] = $admin_data['Admin_ID'];
+						header("Location: index.php");
+						die;
+					}
+				}
+			}
+			
+			echo "wrong username or password!";
+		}else
+		{
+			echo "wrong username or password!";
+		}
+	}
+
 ?>
-
-
-
-
-<div class="container">
-
-<!-- Outer Row -->
-<div class="row justify-content-center">
-
-  <div class="col-xl-6 col-lg-6 col-md-6">
-
-    <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Login Here!</h1>
-                <?php
-
-                    if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
-                    {
-                        echo '<h2 class="bg-danger text-white"> '.$_SESSION['status'].' </h2>';
-                        unset($_SESSION['status']);
-                    }
-                ?>
-              </div>
-
-                <form class="user" action="logincode.php" method="POST">
-
-                    <div class="form-group">
-                    <input type="email" name="emaill" class="form-control form-control-user" placeholder="Enter Email Address...">
-                    </div>
-                    <div class="form-group">
-                    <input type="password" name="passwordd" class="form-control form-control-user" placeholder="Password">
-                    </div>
-            
-                    <button type="submit" name="login_btn" class="btn btn-primary btn-user btn-block"> Login </button>
-                    <hr>
-                </form>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-center min-vh-100 align-items-center bg-dark">
+        <div> 
+            <div class="border border-5 rounded-3 p-3 bg-secondary">  
+            <form method="post">
+                <div class="m-3">
+                    <label class="h1">Events<span class="text-primary">Wave</span></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-
-  </div>
-
-</div>
-
-</div>
-
-
-<?php
-include('includes/scripts.php'); 
-?>
+    
+</body>
+</html>
