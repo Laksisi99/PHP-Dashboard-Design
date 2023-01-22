@@ -29,6 +29,25 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
+  <a class="nav-link" href="register.php">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Admins Section</span></a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="club.php">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Clubs Section</span></a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="user.php">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Users Section</span></a>
+</li>
+
+
+<!-- <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-cog"></i>
     <span>Components</span>
@@ -40,16 +59,8 @@
       <a class="collapse-item" href="cards.html">Cards</a>
     </div>
   </div>
-</li>
+</li> -->
 
-
-
-
-<li class="nav-item">
-  <a class="nav-link" href="register.php">
-    <i class="fas fa-fw fa-chart-area"></i>
-    <span>Admin Profile</span></a>
-</li>
 
 
 

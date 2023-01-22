@@ -9,32 +9,41 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Admin Data</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Club Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="codeclub.php" method="POST">
 
         <div class="modal-body">
 
             <div class="form-group">
-                <label> Username </label>
-                <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                <label> Club Name </label>
+                <input type="text" name="clubname" class="form-control" placeholder="Enter Club Name">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                <label>User Name</label>
+                <input type="text" name="username" class="form-control" placeholder="Enter User Name">
             </div>
             <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password">
+                <label>Club Mail</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter Club Mail @sltc.ac.lk">
             </div>
+            <div class="form-group">
+                <label>Facebook</label>
+                <input type="text" name="facebook" class="form-control" placeholder="Enter Facebook Link">
+            </div>
+            <div class="form-group">
+                <label>WhatsApp</label>
+                <input type="text" name="whatsapp" class="form-control" placeholder="Enter Whatsapp Number/Link">
+            </div>
+            
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Register Admin</button>
+            <button type="submit" name="registerbtn" class="btn btn-primary">Register Club</button>
         </div>
       </form>
 
@@ -49,9 +58,9 @@ include('includes/navbar.php');
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add New Admin 
+              Add New Club 
     </button>
-    <h6 class="m-2 mt-5  font-weight-bold text-primary">Admin Profiles 
+    <h6 class="m-2 mt-5  font-weight-bold text-primary">Club Profiles 
             
     </h6>
   </div>
@@ -79,7 +88,7 @@ include('includes/navbar.php');
     <?php
 
       $connection = mysqli_connect("localhost","root","","eventswave");
-      $query = "SELECT * FROM admin";
+      $query = "SELECT * FROM users WHERE USER_TYPE = 0";
       $query_run = mysqli_query($connection, $query);
 
     ?>
@@ -88,9 +97,11 @@ include('includes/navbar.php');
         <thead>
           <tr>
             <th> ID </th>
-            <th> Username </th>
-            <th>EDIT </th>
-            <th>DELETE </th>
+            <th> Club Name </th>
+            <th> Email </th>
+            <th> Facebook </th>
+            <th> WhatsApp </th>
+            <th> DELETE </th>
           </tr>
         </thead>
         <tbody>
@@ -104,16 +115,19 @@ include('includes/navbar.php');
             ?>
      
           <tr>
-            <td><?php echo $row['Admin_ID']; ?></td>
-            <td><?php echo $row['User_Name']; ?></td>
-            <td>
+            <td><?php echo $row['User_ID']; ?></td>
+            <td><?php echo $row['FULL_NAME']; ?></td>
+            <td><?php echo $row['EMAIL']; ?></td>
+            <td><?php echo $row['FACEBOOK']; ?></td>
+            <td><?php echo $row['WHATSAPP']; ?></td>
+            <!-- <td>
               <form action="register_edit.php" method="POST">
                 <input type="hidden" name="edit_id" value="<?php echo $row['Admin_ID']; ?>">
                 <button  type="submit" name="edit_btn" class="btn btn-success">EDIT</button>
               </form>
-            </td>
+            </td> -->
             <td>
-              <form action="register_delete.php" method="POST">
+              <form action="clubdelete.php" method="POST">
                 <button type="submit" name="delete_btn" class="btn btn-danger">DELETE</button>
               </form>
             </td>
