@@ -1,10 +1,20 @@
 <?php
 
-include('security.php');
-include('includes/header.php'); 
-include('includes/navbar.php'); 
-?>
+#include('security.php');
 
+session_start();
+
+if(!isset($_SESSION['id']))
+{
+  header('location: signin.php');
+
+  exit;
+}
+
+include('includes/header.php');
+
+include('includes/navbar.php');
+?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -28,7 +38,7 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admins</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-               <?php
+                <?php
                 require 'dbconfig.php';
 
                 $query = "SELECT Admin_ID FROM admin ORDER BY Admin_ID";
@@ -36,9 +46,9 @@ include('includes/navbar.php');
 
                 $row = mysqli_num_rows($query_run);
 
-                echo '<h1>'.$row.'</h1>';
-               ?>
-               
+                echo '<h1>' . $row . '</h1>';
+                ?>
+
 
               </div>
             </div>
@@ -60,7 +70,7 @@ include('includes/navbar.php');
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
 
-              <?php
+                <?php
                 require 'dbconfig.php';
 
                 $query = "SELECT USER_ID FROM users WHERE USER_TYPE = 0 ORDER BY USER_ID";
@@ -68,9 +78,9 @@ include('includes/navbar.php');
 
                 $row = mysqli_num_rows($query_run);
 
-                echo '<h1>'.$row.'</h1>';
-               ?>
-            
+                echo '<h1>' . $row . '</h1>';
+                ?>
+
               </div>
             </div>
             <div class="col-auto">
@@ -91,7 +101,7 @@ include('includes/navbar.php');
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
 
-              <?php
+                <?php
                 require 'dbconfig.php';
 
                 $query = "SELECT USER_ID FROM users WHERE USER_TYPE = 1 ORDER BY USER_ID";
@@ -99,9 +109,9 @@ include('includes/navbar.php');
 
                 $row = mysqli_num_rows($query_run);
 
-                echo '<h1>'.$row.'</h1>';
-               ?>
-            
+                echo '<h1>' . $row . '</h1>';
+                ?>
+
               </div>
             </div>
             <div class="col-auto">
@@ -167,6 +177,6 @@ include('includes/navbar.php');
 
 
   <?php
-include('includes/scripts.php');
-include('includes/footer.php');
-?>
+  include('includes/scripts.php');
+  include('includes/footer.php');
+  ?>
