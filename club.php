@@ -4,6 +4,33 @@ include('includes/header.php');
 include('includes/navbar.php');
 ?>
 
+<?php if(isset($_GET['error_message'])){ ?>
+
+<?php
+
+$message = $_GET['error_message'];
+
+echo"<body onload='notification_function(`Error Message`, `$message`, `#da1857`);'</body>"
+
+?>
+
+<?php }?>
+
+<?php if(isset($_GET['success_message'])){ ?>
+
+<?php
+
+$message = $_GET['success_message'];
+
+echo"<body onload='notification_function(`Success Message`, `$message`, `#0F73FA`);'</body>"
+
+?>
+
+<?php }?>
+
+<link rel="stylesheet" href="notifast/notifast.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -15,7 +42,7 @@ include('includes/navbar.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="codeclub.php" method="POST">
+      <form action="new-club.php" method="POST">
 
         <div class="modal-body">
           
@@ -136,6 +163,9 @@ include('includes/navbar.php');
     </div>
   </div>
 
+  <script src="notifast/notifast.min.js"></script>
+
+  <script src="notifast/function.js"></script>
 </div>
 <!-- /.container-fluid -->
 
