@@ -90,6 +90,7 @@ echo"<body onload='notification_function(`Success Message`, `$message`, `#0F73FA
 
         </div>
         <div class="modal-footer">
+        
         <button type="submit" name="posting" class="btn btn-primary">Register Event</button>
         </div>
     </form>
