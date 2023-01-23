@@ -18,29 +18,11 @@ include('includes/navbar.php');
       <form action="codeclub.php" method="POST">
 
         <div class="modal-body">
-
-          <div class="form-group">
-            <label> Club Name </label>
-            <input type="text" name="clubname" class="form-control" placeholder="Enter Club Name">
-          </div>
-          <div class="form-group">
-            <label>User Name</label>
-            <input type="text" name="username" class="form-control" placeholder="Enter User Name">
-          </div>
+          
           <div class="form-group">
             <label>Club Mail</label>
             <input type="email" name="email" class="form-control" placeholder="Enter Club Mail @sltc.ac.lk">
           </div>
-          <div class="form-group">
-            <label>Facebook</label>
-            <input type="text" name="facebook" class="form-control" placeholder="Enter Facebook Link">
-          </div>
-          <div class="form-group">
-            <label>WhatsApp</label>
-            <input type="text" name="whatsapp" class="form-control" placeholder="Enter Whatsapp Number/Link">
-          </div>
-
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -51,7 +33,6 @@ include('includes/navbar.php');
     </div>
   </div>
 </div>
-
 
 <div class="container-fluid">
 
