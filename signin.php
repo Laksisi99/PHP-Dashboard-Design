@@ -45,7 +45,7 @@
 
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form method="post" action="login_action.php">
+                                    <form method="post" action="signin-action.php">
 
                                         <img src="assets/images/login_request/small_logo.png" height="40px"
                                             width="auto"> <br><br>
@@ -65,7 +65,7 @@
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form2Example17" class="form-control form-control-lg"
                                                 name="email" />
-                                            <label class="form-label" for="form2Example17">Admin ID / User Name</label>
+                                            <label class="form-label" for="form2Example17">Registered Name</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
