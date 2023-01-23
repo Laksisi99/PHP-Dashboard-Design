@@ -47,6 +47,12 @@
     <span>Users Section</span></a>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" href="specialevents.php">
+  <i class="fas fa-users"></i>
+    <span>Special Events</span></a>
+</li>
+
 
 <!--<li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
