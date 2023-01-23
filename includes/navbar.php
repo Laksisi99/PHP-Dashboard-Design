@@ -6,7 +6,7 @@
   <div class="sidebar-brand-icon rotate-n-15">
     <i class="fas fa-laugh-wink"></i>
   </div>
-  <div class="sidebar-brand-text mx-3">FUNDA <sup>WEB IT</sup></div>
+  <div class="sidebar-brand-text mx-3">EventsWave <sup>Admin</sup></div>
 </a>
 
 <!-- Divider -->
@@ -19,35 +19,36 @@
     <span>Dashboard</span></a>
 </li>
 
+<i class="bi bi-shield-lock"></i>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Interface
+  Users Management
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link" href="register.php">
-    <i class="fas fa-fw fa-chart-area"></i>
+    <i class="fas fa-user-secret"></i>
     <span>Admins Section</span></a>
 </li>
 
 <li class="nav-item">
   <a class="nav-link" href="club.php">
-    <i class="fas fa-fw fa-chart-area"></i>
+  <i class="fas fa-flag"></i>
     <span>Clubs Section</span></a>
 </li>
 
 <li class="nav-item">
   <a class="nav-link" href="user.php">
-    <i class="fas fa-fw fa-chart-area"></i>
+  <i class="fas fa-users"></i>
     <span>Users Section</span></a>
 </li>
 
 
-<!-- <li class="nav-item">
+<!--<li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-cog"></i>
     <span>Components</span>
@@ -59,12 +60,8 @@
       <a class="collapse-item" href="cards.html">Cards</a>
     </div>
   </div>
-</li> -->
+</li>
 
-
-
-
-<!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
     <i class="fas fa-fw fa-wrench"></i>
@@ -79,7 +76,7 @@
       <a class="collapse-item" href="utilities-other.html">Other</a>
     </div>
   </div>
-</li>
+</li>-->
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -93,7 +90,7 @@
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
     <i class="fas fa-fw fa-folder"></i>
-    <span>Pages</span>
+    <span>Quick Links</span>
   </a>
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
@@ -109,19 +106,20 @@
   </div>
 </li>
 
-<!-- Nav Item - Charts -->
+
+<!-- Nav Item - Charts
 <li class="nav-item">
   <a class="nav-link" href="charts.html">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Charts</span></a>
 </li>
 
-<!-- Nav Item - Tables -->
+
 <li class="nav-item">
   <a class="nav-link" href="tables.html">
     <i class="fas fa-fw fa-table"></i>
     <span>Tables</span></a>
-</li>
+</li>-->
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
