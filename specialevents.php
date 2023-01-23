@@ -43,7 +43,7 @@ echo"<body onload='notification_function(`Success Message`, `$message`, `#0F73FA
 
       </h3>
 
-      <p>This section belongs to special events which are <strong> not </strong> under any society or club on campus.</p>
+      
       <p>Use this Forum to <strong>Register</strong> those events.</p>
     </div>
 
