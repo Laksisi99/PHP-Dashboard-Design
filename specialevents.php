@@ -5,7 +5,33 @@ include('includes/navbar.php');
 ?>
 
 
+<?php if(isset($_GET['error_message'])){ ?>
 
+<?php
+
+$message = $_GET['error_message'];
+
+echo"<body onload='notification_function(`Error Message`, `$message`, `#da1857`);'</body>"
+
+?>
+
+<?php }?>
+
+<?php if(isset($_GET['success_message'])){ ?>
+
+<?php
+
+$message = $_GET['success_message'];
+
+echo"<body onload='notification_function(`Success Message`, `$message`, `#0F73FA`);'</body>"
+
+?>
+
+<?php }?>
+
+<link rel="stylesheet" href="notifast/notifast.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="container-fluid">
 
@@ -39,14 +65,10 @@ include('includes/navbar.php');
 
     <div class="form-responsive">
 
-    <form action="code.php" method="POST">
+    <form action="add_specialEvents.php" method="POST">
 
         <div class="modal-body">
 
-        <div class="form-group">
-            <label> Event ID </label>
-            <input type="text" name="eventid" class="form-control" placeholder="Enter Event ID">
-        </div>
         <div class="form-group">
             <label>Event Caption</label>
             <input type="text" name="caption" class="form-control" placeholder="Enter Event Caption">
@@ -64,16 +86,11 @@ include('includes/navbar.php');
                 <label>Event Time</label>
                 <input type="time" name="eventtime" class="form-control" placeholder="Select Event Time">
             </div>
-            <div class="form-group">
-                <label>Select Today Date</label>
-                <input type="date" name="today" class="form-control" placeholder="Select Today Date">
-            </div>
         </div>
 
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="registerbtn" class="btn btn-primary">Register Event</button>
+        <button type="submit" name="posting" class="btn btn-primary">Register Event</button>
         </div>
     </form>
 
@@ -84,7 +101,12 @@ include('includes/navbar.php');
 </div>
 <!-- /.container-fluid -->
 
+<script src="notifast/notifast.min.js"></script>
+
+<script src="notifast/function.js"></script>
+
 <?php
 include('includes/scripts.php');
+
 include('includes/footer.php');
 ?>
