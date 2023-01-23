@@ -1,8 +1,6 @@
 <?php
 
-session_start();
-
-include('config.php');
+include('dbconfig.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -49,8 +47,10 @@ if(isset($_POST['registerbtn']))
         // user availibility check in the system
         
         $sql_query = "SELECT User_ID FROM USERS WHERE EMAIL = '$email_address';";
+
+        echo $sql_query;
     
-        $stmt = $conn->prepare($sql_query);
+        $stmt = $connection->prepare($sql_query);
     
         $stmt->execute();
     
@@ -58,7 +58,7 @@ if(isset($_POST['registerbtn']))
 
         if($stmt->num_rows() > 0)
         {    
-            header('location: create-account.php?error_message=Your Email  Account already register on System');
+            header("location: club.php?error_message=Your Email  Account already register on System");
     
             exit;
         }
@@ -70,17 +70,19 @@ if(isset($_POST['registerbtn']))
         
         ('$full_name', '$user_name', '$user_type', '$encrypted_password', '$email_address', '$image', '$facebook', '$whatsapp', '$bio', $fallowers, $fallowing, $post_count);";
 
+        echo $insert_query;
+
         $stmt->prepare($insert_query);
 
         if($stmt->execute())
         {
-            echo 'club add sucessfully';
+            header("location: club.php?success_message=Club Registeration Successfully - Email Sent to the Club Team");
 
             mailer($email_address, $password, $user_name, $full_name);
 
         }else{
 
-            header("location: create-account.php?error_message=error occurred #008");
+            header("location: club.php?error_message=error occurred #008");
 
             exit;
         }       
@@ -88,13 +90,13 @@ if(isset($_POST['registerbtn']))
     }
     else
     {
-        header("location: create-account.php?error_message=This system does not support external email addresses. Please use the SLTC Mail address that was provided to you");
+        header("location: club.php?error_message=This system does not support external email addresses. Please use the SLTC Mail address that was provided to you");
 
         exit;
     }
 }else
 {
-    header("location: create-account.php?error_message=error occurred #009");
+    header("location: club.php?error_message=error occurred #009");
 
     exit;
 }
