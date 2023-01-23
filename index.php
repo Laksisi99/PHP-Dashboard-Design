@@ -1,10 +1,20 @@
 <?php
 
-include('security.php');
+#include('security.php');
+
+session_start();
+
+if(!isset($_SESSION['id']))
+{
+  header('location: signin.php');
+
+  exit;
+}
+
 include('includes/header.php');
+
 include('includes/navbar.php');
 ?>
-
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
