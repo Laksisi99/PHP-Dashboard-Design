@@ -49,7 +49,7 @@
 
 <li class="nav-item">
   <a class="nav-link" href="specialevents.php">
-  <i class="fas fa-users"></i>
+  <i class="fa fa-calendar"></i>
     <span>Special Events</span></a>
 </li>
 
