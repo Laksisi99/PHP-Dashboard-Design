@@ -89,7 +89,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Addons
+  Navigation
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
@@ -100,18 +100,27 @@
   </a>
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Login Screens:</h6>
-      <a class="collapse-item" href="login.html">Login</a>
-      <a class="collapse-item" href="register.html">Register</a>
-      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+      <h6 class="collapse-header">Sites</h6>
+      <a class="collapse-item" href="https://edu.sltc.ac.lk/teal">SLTC.ac.lk</a>
+      <a class="collapse-item" href="https://eventswave-sltc.eastus.cloudapp.azure.com/">EventsWave Platform</a>
       <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Other Pages:</h6>
-      <a class="collapse-item" href="404.html">404 Page</a>
-      <a class="collapse-item" href="blank.html">Blank Page</a>
     </div>
   </div>
 </li>
 
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+  Permissions
+</div>
+
+<li class="nav-item">
+  <a class="nav-link" href="logout.php">
+  <i class="fas fa-sign-out-alt"></i>
+    <span>Log Out</span></a>
+</li>
 
 <!-- Nav Item - Charts
 <li class="nav-item">
@@ -167,21 +176,13 @@
                 <?php echo $_SESSION['admin_registerName']; ?>
                   
                 </span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="img/profile.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="register.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
+                  Profiles
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
