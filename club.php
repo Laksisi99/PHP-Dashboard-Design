@@ -108,7 +108,7 @@ echo"<body onload='notification_function(`Success Message`, `$message`, `#0F73FA
 
         <?php
 
-        $connection = mysqli_connect("localhost", "root", "", "eventswave");
+        include('dbconfig.php');
         $query = "SELECT * FROM users WHERE USER_TYPE = 0";
         $query_run = mysqli_query($connection, $query);
 

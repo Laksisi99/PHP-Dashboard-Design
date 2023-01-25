@@ -53,7 +53,7 @@ include('includes/navbar.php');
 
         <?php
 
-        $connection = mysqli_connect("localhost", "root", "", "eventswave");
+        include('dbconfig.php');
         $query = "SELECT * FROM users WHERE USER_TYPE = 1";
         $query_run = mysqli_query($connection, $query);
 

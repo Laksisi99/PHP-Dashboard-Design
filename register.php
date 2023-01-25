@@ -91,7 +91,7 @@ include('includes/navbar.php');
 
         <?php
 
-        $connection = mysqli_connect("localhost", "root", "", "eventswave");
+        include('dbconfig.php');
         $query = "SELECT * FROM admin";
         $query_run = mysqli_query($connection, $query);
 
