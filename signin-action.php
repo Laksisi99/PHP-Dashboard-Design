@@ -24,11 +24,13 @@ if(isset($_POST['button']))
         
         $stmt->fetch();
 
-        $_SESSION['id'] = $Admin_ID;
+        $_SESSION['admin_id'] = $Admin_ID;
 
         $_SESSION['admin_registerName'] = $User_name;
 
         $_SESSION['password'] = $password;
+
+        $_SESSION['user_type'] = $password;
 
         header("location: index.php");
     }

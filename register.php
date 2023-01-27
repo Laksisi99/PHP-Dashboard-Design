@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['admin_id']))
+{
+  header('location: signin.php');
+
+  exit;
+}
+
+if($_SESSION['password'] != $_SESSION['user_type'])
+{
+  header('location: signin.php');
+
+  exit;
+}
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
@@ -77,7 +91,7 @@ include('includes/navbar.php');
 
         <?php
 
-        $connection = mysqli_connect("localhost", "root", "", "eventswave");
+        include('dbconfig.php');
         $query = "SELECT * FROM admin";
         $query_run = mysqli_query($connection, $query);
 

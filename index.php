@@ -4,7 +4,14 @@
 
 session_start();
 
-if(!isset($_SESSION['id']))
+if(!isset($_SESSION['admin_id']))
+{
+  header('location: signin.php');
+
+  exit;
+}
+
+if($_SESSION['password'] != $_SESSION['user_type'])
 {
   header('location: signin.php');
 
