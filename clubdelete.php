@@ -7,7 +7,7 @@ include('includes/navbar.php');
 <div class="card shadow mb-0">
   <div class="card-header py-3">
 
-    <h6 class="ml-6 mt-3  font-weight-bold text-primary">Remove Club </h6>
+    <h6 class="ml-6 mt-3  font-weight-bold text-primary"> Remove Club </h6>
 
   </div>
 
